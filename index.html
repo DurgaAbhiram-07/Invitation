@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="preload" as="image" href="pranavi.png">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
@@ -19,13 +20,9 @@
     </div>
 
     <div id="main-invite">
-        <div class="corner-decoration top-left"></div>
-        <div class="corner-decoration top-right"></div>
-        <div class="corner-decoration bottom-left"></div>
-        <div class="corner-decoration bottom-right"></div>
-
-        <div class="header-img"></div> <h2>HEARTLY WELCOME</h2>
-        <h1>Gnana Pranavi's Maturity Ceremony</h1>
+        <img class="header-img" src="pranavi.png" alt="Gnana Pranavi" width="150" height="150" decoding="async" fetchpriority="high">
+        <h2>HEARTLY WELCOME</h2>
+        <h1>Gnana Pranavi's HalfSaree Function</h1>
         
         <p class="message">
             With joy in our hearts, we invite you to celebrate our beloved daughter/sister as she steps into the beautiful journey of womanhood. Your presence will make this occasion truly special.
@@ -54,13 +51,6 @@
             ~ We eagerly await your presence ~<br>
             <strong>The Pulicharla Family</strong>
         </p>
-
-        <!-- Decorative Divider -->
-        <div class="decorative-divider">
-            <i class="fas fa-flower"></i>
-            <i class="fas fa-crown"></i>
-            <i class="fas fa-flower"></i>
-        </div>
 
         <!-- Blessing Box -->
         <div class="blessing-box fade-in">
@@ -123,66 +113,6 @@
             <p style="margin: 0;">✨ Created by <strong>Abhiram</strong> ✨</p>
         </div>
 
-    </div>
-
-    <!-- RSVP Modal -->
-    <div id="rsvpModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeRSVP()">&times;</span>
-            <h2><i class="fas fa-heart" style="color: #d63384;"></i> RSVP</h2>
-            <p style="color: #888; margin-bottom: 20px;">Please confirm your attendance</p>
-            
-            <form id="rsvpForm" onsubmit="submitRSVP(event)">
-                <div class="form-group">
-                    <label for="name">Full Name *</label>
-                    <input type="text" id="name" name="name" required placeholder="Enter your name">
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="your.email@example.com">
-                </div>
-                
-                <div class="form-group">
-                    <label for="phone">Phone Number *</label>
-                    <input type="tel" id="phone" name="phone" required placeholder="+1 (555) 123-4567">
-                </div>
-                
-                <div class="form-group">
-                    <label for="guests">Number of Guests *</label>
-                    <select id="guests" name="guests" required>
-                        <option value="">Select...</option>
-                        <option value="1">1 Guest</option>
-                        <option value="2">2 Guests</option>
-                        <option value="3">3 Guests</option>
-                        <option value="4">4 Guests</option>
-                        <option value="5+">5+ Guests</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="attending">Will you attend? *</label>
-                    <select id="attending" name="attending" required>
-                        <option value="">Select...</option>
-                        <option value="yes">Yes, I'll be there!</option>
-                        <option value="no">Sorry, can't make it</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">Special Message (Optional)</label>
-                    <textarea id="message" name="message" rows="3" placeholder="Your wishes or dietary requirements..."></textarea>
-                </div>
-                
-                <button type="submit" class="submit-btn">
-                    <i class="fas fa-paper-plane"></i> Submit RSVP
-                </button>
-
-                <div class="success-message" id="successMessage">
-                    <i class="fas fa-check-circle"></i> Thank you! Your RSVP has been received.
-                </div>
-            </form>
-        </div>
     </div>
 
     <!-- Music Toggle Button -->

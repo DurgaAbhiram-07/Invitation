@@ -24,29 +24,6 @@ function openInvitation() {
     }, 800);
 }
 
-// --- Add ornamental flourishes ---
-function addFlourishes() {
-    const mainInvite = document.getElementById('main-invite');
-    const flourishes = [
-        { class: 'flourish top-left-inner', symbol: '🌸' },
-        { class: 'flourish top-right-inner', symbol: '🌸' },
-        { class: 'flourish bottom-left-inner', symbol: '🌺' },
-        { class: 'flourish bottom-right-inner', symbol: '🌺' }
-    ];
-
-    flourishes.forEach(f => {
-        const flourish = document.createElement('div');
-        flourish.className = f.class;
-        flourish.innerHTML = f.symbol;
-        mainInvite.appendChild(flourish);
-    });
-}
-
-// Call after page loads
-setTimeout(() => {
-    addFlourishes();
-}, 1000);
-
 // --- 2. Confetti Effect ---
 function triggerConfetti() {
     var duration = 3 * 1000;
@@ -138,75 +115,7 @@ function toggleMusic() {
     }
 }
 
-// --- 6. RSVP Modal Functions ---
-function openRSVP() {
-    document.getElementById('rsvpModal').style.display = 'block';
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
-}
-
-function closeRSVP() {
-    document.getElementById('rsvpModal').style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
-
-// Close modal when clicking outside
-window.onclick = function(event) {
-    const modal = document.getElementById('rsvpModal');
-    if (event.target == modal) {
-        closeRSVP();
-    }
-}
-
-function submitRSVP(event) {
-    event.preventDefault();
-
-    // Get form data
-    const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData);
-
-    // Here you would normally send this to a server
-    // For demo purposes, we'll just show success message
-    console.log('RSVP Submitted:', data);
-
-    // Show success message
-    document.getElementById('successMessage').style.display = 'block';
-
-    // Reset form after 2 seconds and close modal
-    setTimeout(() => {
-        document.getElementById('rsvpForm').reset();
-        document.getElementById('successMessage').style.display = 'none';
-        closeRSVP();
-
-        // Optional: Trigger confetti on RSVP submission
-        triggerConfetti();
-    }, 2000);
-}
-
-// --- 7. Social Share Functions ---
-function shareOnWhatsApp() {
-    const text = encodeURIComponent("You're invited to Sree's Maturity Ceremony! Join us on October 25th, 2024.");
-    const url = encodeURIComponent(window.location.href);
-    window.open(`https://wa.me/?text=${text} ${url}`, '_blank');
-}
-
-function shareOnFacebook() {
-    const url = encodeURIComponent(window.location.href);
-    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
-}
-
-function shareOnTwitter() {
-    const text = encodeURIComponent("Join us for a special celebration!");
-    const url = encodeURIComponent(window.location.href);
-    window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
-}
-
-function shareViaEmail() {
-    const subject = encodeURIComponent("You're Invited - Maturity Ceremony");
-    const body = encodeURIComponent("You're invited to celebrate with us! Check out the details at: " + window.location.href);
-    window.location.href = `mailto:?subject=${subject}&body=${body}`;
-}
-
-// --- 8. Scroll Animation Observer ---
+// --- 6. Scroll Animation Observer ---
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
